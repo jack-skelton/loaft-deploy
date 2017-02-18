@@ -5,9 +5,31 @@ body, a, p {
   font-size: 2.5rem !important;
   line-height: 4rem; }
 
+input, textarea {
+  font-size: 2rem !important;
+  line-height: normal !important; }
+
 body, span, p, h1, h2, h3, h4, h5, h6 {
   font-family: "Source Sans Pro", "Helvetica", "Sans-Serif" !important;
   font-weight: 300; }
+
+h5, h6 {
+  font-weight: 400; }
+
+::-webkit-input-placeholder {
+  color: #aaa !important;
+  opacity: 1; }
+
+::-moz-placeholder {
+  color: #aaa !important;
+  opacity: 1; }
+
+:-ms-input-placeholder {
+  color: #aaa !important;
+  opacity: 1; }
+
+:-moz-placeholder {
+  color: #aaa !important; }
 
 nav {
   z-index: 9001;
@@ -53,10 +75,12 @@ nav {
     nav.below-landing ul a {
       color: black; }
       nav.below-landing ul a.active .nav-text:after {
-        border-bottom: 2px solid;
+        border-bottom: 2px solid #123552;
         -webkit-transform: scaleX(1);
         -ms-transform: scaleX(1);
         transform: scaleX(1); }
+      nav.below-landing ul a .nav-text:after {
+        border-color: #123552; }
   nav .nav-text {
     position: relative;
     display: inline-block; }
@@ -152,10 +176,16 @@ nav {
   padding: 1.5rem 1rem;
   border: 2px solid grey; }
 
+.show {
+  opacity: 1 !important;
+  transition: all 2s ease-out; }
+
 #content {
   background-color: white; }
   #content #about {
-    padding-top: 20vh; }
+    opacity: 0;
+    padding-top: 15vh;
+    padding-bottom: 15vh; }
     #content #about h1 {
       font-weight: 700;
       font-size: 5.625rem;
@@ -172,7 +202,9 @@ nav {
         float: left;
         margin-left: 30px; } }
   #content #services {
-    padding-top: 20vh; }
+    opacity: 0;
+    padding-top: 15vh;
+    padding-bottom: 15vh; }
     #content #services .blurb-container {
       position: relative;
       min-height: 150px;
@@ -186,67 +218,132 @@ nav {
       #content #services .blurb-container .opacity {
         opacity: 1; }
     #content #services .buckets1 {
-      background-color: #FFF6E6;
       position: relative;
       height: 400px;
       padding: 0;
       overflow: hidden; }
-      #content #services .buckets1 .cock-content {
+      #content #services .buckets1 .slide-content {
         background-color: white;
         width: 100%;
         position: absolute;
         bottom: -400px;
         transition: all 0.5s ease; }
-      #content #services .buckets1 .dick-content {
+      #content #services .buckets1 .top-content {
         background-color: white;
         width: 100%;
         height: 100%;
         position: absolute;
         bottom: 0px;
         transition: all 0.5s ease; }
-    #content #services .buckets1:hover .cock-content {
-      background-color: mintcream;
+    #content #services .buckets1:hover .slide-content {
+      background-color: #fd5c63;
       bottom: 0px; }
-    #content #services .buckets1:hover .dick-content {
-      bottom: 200px; }
+    #content #services .buckets1:hover .top-content {
+      bottom: 250px; }
     #content #services .buckets2 {
-      background-color: white;
       position: relative;
       height: 400px;
       padding: 0;
       overflow: hidden; }
-      #content #services .buckets2 .dick-content {
+      #content #services .buckets2 .slide-content {
         background-color: white;
         width: 100%;
         position: absolute;
         bottom: -400px;
         transition: all 0.5s ease; }
-    #content #services .buckets2:hover .dick-content {
-      background-color: #fd5c63;
+      #content #services .buckets2 .top-content {
+        background-color: white;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        bottom: 0px;
+        transition: all 0.5s ease; }
+    #content #services .buckets2:hover .slide-content {
+      background-color: #ffd740;
       bottom: 0px; }
+    #content #services .buckets2:hover .top-content {
+      bottom: 250px; }
     #content #services .buckets3 {
       background-color: white;
       position: relative;
       height: 400px;
       padding: 0;
       overflow: hidden; }
-      #content #services .buckets3 .wang-content {
+      #content #services .buckets3 .slide-content {
         background-color: mintcream;
         width: 100%;
         position: absolute;
         bottom: -400px;
         transition: all 0.5s ease; }
-    #content #services .buckets3:hover .wang-content {
-      background-color: #76daff;
+      #content #services .buckets3 .top-content {
+        background-color: white;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        bottom: 0px;
+        transition: all 0.5s ease; }
+    #content #services .buckets3:hover .slide-content {
+      background-color: #448aff;
       bottom: 0px; }
+    #content #services .buckets3:hover .top-content {
+      bottom: 250px; }
 
 #work {
-  padding-top: 20vh; }
+  opacity: 0;
+  perspective: 1000px;
+  padding-top: 15vh;
+  padding-bottom: 20vh; }
   #work h1 {
     display: block;
     font-size: 300px;
     top: -2.86364rem;
     right: 5.45455rem; }
+  #work .main-carousel {
+    top: 5vh;
+    margin-left: -200;
+    height: 400px;
+    transform: rotateY(-10deg); }
+    #work .main-carousel .carousel-cell {
+      padding: 15px;
+      transition: all .2s ease-in-out; }
+      #work .main-carousel .carousel-cell img {
+        width: 400px;
+        max-width: 1000px;
+        max-height: 1000px; }
+  #work .carousel-cell.is-selected {
+    -webkit-filter: blur(0px);
+    filter: blur(0px);
+    z-index: 9001; }
+  #work .mobile-carousel .carousel-cell {
+    width: 100%; }
+    #work .mobile-carousel .carousel-cell img {
+      display: block;
+      max-width: 100%;
+      max-height: 100%; }
+
+#contact {
+  margin-top: 15vh;
+  background-color: #FFF2E6; }
+  #contact .email {
+    color: #2A4F6E; }
+  #contact .row {
+    margin-bottom: 0; }
+  #contact h2 {
+    padding-top: 3vh; }
+  #contact p {
+    margin-top: 1vh; }
+  #contact button {
+    background-color: #2A4F6E;
+    margin-bottom: 3vh; }
+
+footer p {
+  background-color: white;
+  height: 1vh;
+  line-height: 0;
+  padding: 2.5rem;
+  font-weight: 400;
+  font-size: 1.6rem !important;
+  display: block; }
 
 .typed-cursor {
   opacity: 1;
@@ -277,3 +374,33 @@ nav {
     opacity: 0; }
   100% {
     opacity: 1; } }
+
+.letter-b {
+  -webkit-filter: blur(6px);
+  filter: blur(6px);
+  transition: all 0.5s; }
+
+.letter-b:hover {
+  -webkit-filter: blur(0px);
+  filter: blur(0px);
+  transition: all 0.5s; }
+
+.letter-l {
+  -webkit-filter: blur(4px);
+  filter: blur(4px);
+  transition: all 0.5s; }
+
+.letter-l:hover {
+  -webkit-filter: blur(0px);
+  filter: blur(0px);
+  transition: all 0.5s; }
+
+.letter-u {
+  -webkit-filter: blur(2px);
+  filter: blur(2px);
+  transition: all 0.5s; }
+
+.letter-u:hover {
+  -webkit-filter: blur(0px);
+  filter: blur(0px);
+  transition: all 0.5s; }
