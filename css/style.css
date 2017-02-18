@@ -178,7 +178,8 @@ nav {
 
 .show {
   opacity: 1 !important;
-  transition: all 2s ease-out; }
+  transform: translate3d(0, -50px, 0px);
+  transition: all 1s ease-out; }
 
 #content {
   background-color: white; }
@@ -202,9 +203,7 @@ nav {
         float: left;
         margin-left: 30px; } }
   #content #services {
-    opacity: 0;
-    padding-top: 15vh;
-    padding-bottom: 15vh; }
+    opacity: 0; }
     #content #services .blurb-container {
       position: relative;
       min-height: 150px;
